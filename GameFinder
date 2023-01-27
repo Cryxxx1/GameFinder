@@ -1,0 +1,70 @@
+import random
+def policz_poprawne_gry(lista_podanych_gier, lista_gier_do_zgadniecia):
+    
+    liczba_odgadnietych_gier = 0
+    
+    kopia_listy_gier_do_zgadniecia = lista_gier_do_zgadniecia.copy()
+    
+    for gra in lista_podanych_gier:
+       
+        if gra in kopia_listy_gier_do_zgadniecia:
+            
+            liczba_odgadnietych_gier += 1
+            
+            miejsce_poprawnej_gry = kopia_listy_gier_do_zgadniecia.index(gra)
+           
+            kopia_listy_gier_do_zgadniecia[miejsce_poprawnej_gry] = "/"
+            pass
+        pass
+    return liczba_odgadnietych_gier
+ 
+ 
+
+gry = ["Pokemon", "Fortnite", "Minecraft", "CS"]
+
+lista_gier_do_zgadniecia = []
+
+lista_wprowadzonych_gier = []
+
+ 
+liczba_prob = 0 
+ 
+for i in range(4):
+    wylosowana_gra = gry[random.randint(0,3)]
+    lista_gier_do_zgadniecia.append(wylosowana_gra)
+    
+
+
+print("                     Witaj w grze GameFinder")
+print('Wszytskie gry',(gry))
+print("Twoim celem jest jak najszybciej odgadnąć 4 gry, które zostały wylosowane przez komputer.")
+print("Podczas zgadywania ważna jest kolejność gier.")
+print("Uwaga gry mogą się powtórzyć!!!")
+print("Oto zestaw gier z jakich korzysta komputer (zwróć uwagę na wielkość liter)")
+print('© 2023-2023 © - Whip3k ')
+
+while lista_wprowadzonych_gier != lista_gier_do_zgadniecia:
+    lista_wprowadzonych_gier = []
+    print ('Nowa próba')
+    
+    for i in range(4):
+        wpisana_gra = input(f"Podaj grę nr {i+1}: ")
+        lista_wprowadzonych_gier.append(wpisana_gra)
+        pass
+    idealne_gry = 0
+    poprawne_gry = 0
+    
+    for i in range(4):
+        if lista_wprowadzonych_gier[i] == lista_gier_do_zgadniecia [i]:
+        
+            idealne_gry += 1 
+        poprawne_gry = policz_poprawne_gry(lista_wprowadzonych_gier,lista_gier_do_zgadniecia)
+        poprawne_gry -= idealne_gry
+        liczba_prob += 1
+    print (f'Podałeś następujące gry: {lista_wprowadzonych_gier}')
+    
+    if idealne_gry < 4:
+        print(f"Niestety, nie zgadłeś. Idealnie trafiłeś {idealne_gry} gier oraz ustawiłeś {poprawne_gry} gier poprawnych, ale w złych miejscach")
+print('Brawo, wygrałeś!')
+        
+        
