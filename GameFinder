@@ -35,17 +35,17 @@ for i in range(4):
     
 
 
-print("                     Witaj w grze GameFinder")
-print('Wszytskie gry',(gry))
-print("Twoim celem jest jak najszybciej odgadnąć 4 gry, które zostały wylosowane przez komputer.")
-print("Podczas zgadywania ważna jest kolejność gier.")
-print("Uwaga gry mogą się powtórzyć!!!")
-print("Oto zestaw gier z jakich korzysta komputer (zwróć uwagę na wielkość liter)")
-print('© 2023-2023 © - Whip3k ')
+print("                    			 Witaj w grze GameFinder")
+print('  Wszytskie gry',(gry))
+print("  Twoim celem jest jak najszybciej odgadnąć 4 gry, które zostały wylosowane przez komputer.")
+print("  Podczas zgadywania ważna jest kolejność gier.")
+print("  Uwaga gry mogą się powtórzyć!!!")
+print('  © 2023-2023 © - Whip3k ')
+print('  ')
 
 while lista_wprowadzonych_gier != lista_gier_do_zgadniecia:
     lista_wprowadzonych_gier = []
-    print ('Nowa próba')
+    
     
     for i in range(4):
         wpisana_gra = input(f"Podaj grę nr {i+1}: ")
@@ -61,10 +61,16 @@ while lista_wprowadzonych_gier != lista_gier_do_zgadniecia:
         poprawne_gry = policz_poprawne_gry(lista_wprowadzonych_gier,lista_gier_do_zgadniecia)
         poprawne_gry -= idealne_gry
         liczba_prob += 1
-    print (f'Podałeś następujące gry: {lista_wprowadzonych_gier}')
+    print (f' Podałeś następujące gry: {lista_wprowadzonych_gier}')
+   
     
     if idealne_gry < 4:
-        print(f"Niestety, nie zgadłeś. Idealnie trafiłeś {idealne_gry} gier oraz ustawiłeś {poprawne_gry} gier poprawnych, ale w złych miejscach")
+        print('  ')
+        print('                                              Przegrałeś :(')
+        print(f" Niestety, nie zgadłeś. Idealnie trafiłeś {idealne_gry} gier oraz ustawiłeś {poprawne_gry} gier poprawnych, ale w złych miejscach")
+        print('  ')
+        print ('Nowa próba')
+print('  ')
 print('Brawo, wygrałeś!')
-        
-        
+print('  ')
+input('Koniec')
